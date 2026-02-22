@@ -21,5 +21,24 @@ if ($mydb->errno != 0)
 	exit(0);
 }
 
+while($row = mysqli_fetch_array($response))
+	{
+		print_r($row);
+	}
+
+$query = "SHOW DATABASES";
+
+$response = $mydb->query($query);
+if ($mydb->errno != 0)
+{
+	echo "failed to execute query:".PHP_EOL;
+	echo __FILE__.':'.__LINE__.":error: ".$mydb->error.PHP_EOL;
+	exit(0);
+}
+
+while($row = mysqli_fetch_array($response))
+	{
+		print_r($row);
+	}
 
 ?>
